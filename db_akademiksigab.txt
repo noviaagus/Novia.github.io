@@ -1,0 +1,78 @@
+CREATE DATABASE db_akademiksigab
+USE db_akademikSIGab
+
+create table tbl_mahasiswa(
+nim char (8),
+nama_mahasiswa varchar (30),
+alamat_mahasiswa varchar (100),
+tgl_lahir date,
+PRIMARY KEY (nim)
+);
+
+create table tbl_dosen(
+nama_dosen varchar (30),
+alamat_dosen varchar (100)
+);
+
+create table tbl_kuliah(
+kode varchar (10),
+nama_matakuliah varchar (30),
+sks int,
+semester int
+);
+
+create table tbl_nilai(
+nama_matakuliah varchar (30),
+nim char (8),
+nama_mahasiswa varchar (30),
+indeks_nilai varchar (5) );
+
+
+create table tbl_jadwal(
+nama_matakuliah varchar (30),
+waktu  varchar (100),
+tempat varchar (50),
+nama_dosen varchar (30));
+
+
+insert into tbl_mahasiswa values
+(100001,'Ali Akbar','Jl.Dago Pojok 91, BANDUNG 40135','1992/01/02'),
+(100002,'Budi Haryanto','Jl.Pesantren 25D, Cimahi 40533','1991/10/06'),
+(100003, 'Indah Susanti','Jl. Anggrek 15, Sumedang 45323','1991/05/15'),
+(100004,'Hasanudin','Jl. Tuturan No.2, Bandung 40133','1992/06/12');
+
+select*from tbl_mahasiswa
+
+
+insert into tbl_dosen values 
+('Drs.Taufik Ismail','Kanayakan Baru No.135, Bandung 40135'),
+('Dewi Sundari,MA','Jl. Antapani No.14, bandung 40291'),
+('Dr.Umar Hakoim',' Cibaduyut Kidu No.57C, Bandung 40239');
+
+select * from tbl_dosen
+
+
+insert into tbl_kuliah values 
+('IF-110', 'Struktur Data',3,1),
+('IF-310','Basis Data',4,3),
+('KU-234','Bahasa Indonesia',2,2),
+('MA-115','Matematika 1',3,1);
+
+select * from tbl_kuliah
+
+
+insert into tbl_nilai values
+('Struktur Data',100001,'Ali Akbar','A'),
+('Struktut Data',100004,'Hasanudin','B'),
+('Basis Data',100001,'Ali Akbar',''),
+('Basis Data',100002,'Budi Haryanto',''),
+('Basis Data',100004,'Hasanudin',''),
+('Bahasa Indonesia',100001,'Ali Akbar','B');
+
+select * from tbl_nilai
+
+
+insert into tbl_jadwal
+('Struktur Data','Senin, 08:00-09:40 dan Kamis, 11:00-11:50','Ruang A','Dr.Umar Hakim'),
+('Basis Data','Selasa, 10:00-11:40 dan Jumat, 08:00-09:40','Ruang B','Dr. Umar Hakim'),
+('Bahasa Indonesia','Rabu, 09:00-10:40','Ruang A','Dewi Sundari,MA');
